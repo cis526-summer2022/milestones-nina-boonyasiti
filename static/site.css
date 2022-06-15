@@ -23,20 +23,21 @@
   background-color: #758BFD;
   color: white;
   font-size: 15px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .footer {
   padding: 10px;
-  text-align: center;
+  text-align: left;
   background-color: #758BFD;
   color: white;
   font-size: 15px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  overflow-wrap: break-word;
 }
 
 body {
-  background-color: #2D232E;
+  background-color: #242038;
 }
 
 @media (max-width: 1050px) {
