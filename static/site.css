@@ -12,6 +12,11 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+#map {
+  height: 200px;
+  width: 200px;
+}
+
 @media (max-width: 1050px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
