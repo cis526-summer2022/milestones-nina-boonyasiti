@@ -1,9 +1,7 @@
 .card-container > div {
   margin: 1rem;
   padding: 1rem;
-  /* border: 1px solid #2D232E; */
   border-radius: 10px;
-  /* box-shadow: 5px 5px 5px gainsboro; */
   text-align: center;
   background-color: ghostwhite;
 }
@@ -40,6 +38,7 @@ body {
   background-color: #242038;
 }
 
+/* Front Page: Task 4 */
 @media (max-width: 1050px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
