@@ -1,10 +1,11 @@
 .card-container > div {
   margin: 1rem;
   padding: 1rem;
-  border: 1px solid gray;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px darkgray;
+  /* border: 1px solid #2D232E; */
+  border-radius: 10px;
+  /* box-shadow: 5px 5px 5px gainsboro; */
   text-align: center;
+  background-color: ghostwhite;
 }
 
 .card-container {
@@ -12,9 +13,30 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
-#map {
-  height: 200px;
-  width: 200px;
+*{
+  margin: 0;
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+  background-color: #758BFD;
+  color: white;
+  font-size: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #758BFD;
+  color: white;
+  font-size: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+body {
+  background-color: #2D232E;
 }
 
 @media (max-width: 1050px) {
