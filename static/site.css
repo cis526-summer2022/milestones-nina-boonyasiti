@@ -1,0 +1,16 @@
+.card > div {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px darkgray;
+}
+
+.card img {
+  width: 100%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
