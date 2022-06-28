@@ -24,10 +24,10 @@ function displayCard(data) {
 function useXHR() {
   const xhr = new XMLHttpRequest();
   // Milestone 2: Task 1 - Fetch box-locations.json
-  const url = './box-locations.json';
   xhr.addEventListener('load', () => {
     displayCard(JSON.parse(xhr.responseText));
   });
+  const url = './box-locations.json';
   xhr.open("GET", url);
   xhr.send();
 };
