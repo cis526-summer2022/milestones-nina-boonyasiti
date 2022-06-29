@@ -9,11 +9,11 @@ function serveFile(req, res) {
 
 	fs.readFile(filePath, function(err, body) {
 		if(err) {
-		console.error(err);
-		res.statusCode = 404;
-		res.statusMessage = "Not Found";
-		res.end();
-		return;
+			console.error(err);
+			res.statusCode = 404;
+			res.statusMessage = "Not Found";
+			res.end();
+			return;
 		}
 		res.setHeader("Content-Length", body.length);
 		res.setHeader("Content-Type", pathToMimeType(filePath));
