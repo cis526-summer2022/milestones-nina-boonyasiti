@@ -1,6 +1,5 @@
 const http = require('http');
 const fs = require('fs');
-const serveFile = require('./serve-file');
 const html = fs.readFileSync('static/index.html');
 const css = fs.readFileSync('static/site.css');
 const js = fs.readFileSync('static/site.js');
