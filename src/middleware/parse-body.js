@@ -1,6 +1,5 @@
 const querystring = require('querystring');
-// const serveError = require('../serve-error');
-
+const serveError = require('../serve-error');
 
 function parseBody(req, res, next) {
   var chunks = [];
@@ -46,7 +45,6 @@ function parseBody(req, res, next) {
     }
   });
   
-  // listen for error events
   req.on('error', (err) => {
     serveError(req, res, 400, err);
   });

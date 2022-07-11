@@ -3,12 +3,12 @@ function displayCard(data) {
     const lat = data[i].lat;
     const long = data[i].lng;
     const description = document.createTextNode(data[i].name);
-
+    console.log("INSIDE SITE.JS");
     const cardContainer = document.getElementById("card-container");
     const card = document.createElement("div");
     const googleMap = document.createElement("img");
     const text = document.createElement("p");
-    const mapURL = `https://maps.googleapis.com/maps/api/staticmap?censer=${lat},${long}&zoom=15&size=200x200&markers=size:mid%7Ccolor:purple%7C${lat},${long}&key=AIzaSyCX8V4KyBtUv7RdOXkeZyGa11wrxlTSVx0`;
+    const mapURL = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=15&size=200x200&markers=size:mid%7Ccolor:purple%7C${lat},${long}&key=AIzaSyCX8V4KyBtUv7RdOXkeZyGa11wrxlTSVx0`;
     
     text.appendChild(description);
     card.appendChild(googleMap);

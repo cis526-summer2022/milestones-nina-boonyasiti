@@ -11,6 +11,11 @@
   grid-template-columns: repeat(4, 1fr);
 }
 
+.single-card-container {
+  max-width: 1050px;
+  grid-template-columns: repeat(1, 1fr);
+}
+
 *{
   margin: 0;
 }
@@ -38,7 +43,13 @@ body {
   background-color: #242038;
 }
 
-/* Front Page: Task 4 */
+.miscellaneous {
+  background-color: #758BFD;
+  color: white;
+  font-size: 15px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 @media (max-width: 1050px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
@@ -55,3 +66,4 @@ body {
   .card-container {
     grid-template-columns: repeat(1, 1fr);
   }
+}
