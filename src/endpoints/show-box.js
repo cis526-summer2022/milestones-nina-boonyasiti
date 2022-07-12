@@ -2,7 +2,7 @@ const db = require('../database');
 const templates = require('../templates');
 const createRequest = require('./create-request');
 
-async function showBox(req, res, next) {
+async function showBox(req, res) {
   const id = parseInt(req.params.id, 10);
 	var box = db.prepare("SELECT * FROM boxes WHERE id = ?").get(id);
 	let boxID = box.id;
@@ -13,15 +13,11 @@ async function showBox(req, res, next) {
 
 	const requestItems = db.prepare("SELECT * FROM requestChest WHERE box_id = ?").all(boxID);
 
-	console.log('reqItems', requestItems)
-
-	const data = res.json();
-
 	var html = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems});
 
 	res.setHeader("Content-Type", "text/html");
 	res.setHeader("Content-Length", html.length);
-	res.end(html);
+	res.send(html);
 }
 
 module.exports = showBox;

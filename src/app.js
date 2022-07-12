@@ -11,19 +11,16 @@ require('../server');
 var bodyParser = require('body-parser');
 
 const app = express();
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 
-app.use(bodyParser.urlencoded({ extended: true })); 
-app.get('/', serveHomepage);
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('static'));
 
-app.get('/chests', getCommunityChests)
+app.get('/', serveHomepage);
 
-app.get('/boxes/new', newBox);
-app.post('/boxes', parseBody, createRequest);
+// app.get('/chests', getCommunityChests)
 app.get('/boxes/:id', showBox);
 app.post('/box-locations/:id/requests', createRequest);
-app.get('/box-directory', boxDirectory);
 
 /**
  * FOR SUBMITTING

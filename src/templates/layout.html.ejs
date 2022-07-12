@@ -3,7 +3,6 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="/site.css" rel="stylesheet" type="text/css"/>
-    <script src="/site.js"></script>
     <title>MHK Community Chest<%= title %></title>
     <link rel="icon" href="favicon-16x16.png" type="image/png">
     <link rel="icon" href="favicon-32x32.png" type="image/png">
@@ -16,7 +15,9 @@
       <p>Support your local community!</p>
     </div>
 
-    <div class="card-container" id="card-container"></div>
+    <div class="card-container" id="card-container">
+        <%- boxes %>
+    </div>
 
     <div class="footer">
       <h1>What is Community Chest?</h1>
