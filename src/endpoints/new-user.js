@@ -5,7 +5,12 @@ module.exports = function(req, res) {
     errorMessage: ""
   });
 
+  var html = templates["layout.html"]({
+    title: "Sign Up",
+    boxes: form
+  });
+
   res.setHeader("Content-Type", "text/html");
-  res.setHeader("Content-Length", form.length);
-  res.end(form);
+  res.setHeader("Content-Length", html.length);
+  res.end(html);
 }
