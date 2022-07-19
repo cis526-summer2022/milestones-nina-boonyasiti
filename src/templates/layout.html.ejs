@@ -13,8 +13,17 @@
     <div class="header">
       <h1>MHK Community Chest</h1>
       <p>Support your local community!</p>
-      <a href="/signup" <button> Sign Up </button></a><br>
-      <a href="/signin" <button> Sign In </button></a>
+
+     <% if(locals.user) { %>
+        Welcome <%= user.name %>!
+        <% if(user.roles === 1) { %>
+          <a href="'/box-locations/:id/requests'">Create a Post</a>
+        <% } %>
+      <% } else { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
 
     </div>
 

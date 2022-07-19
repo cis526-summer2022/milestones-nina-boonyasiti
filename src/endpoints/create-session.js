@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const templates = require('../templates');
 const db = require('../database');
 const serveError = require('../serve-error');
+const sessions = require('../sessions');
 
 function createSession(req, res) {
 	var email = req.body.email;
@@ -24,13 +25,11 @@ function createSession(req, res) {
 
 //helper function
 function success(req, res, user) {
-	var session = {
-		user: user
-	}
-	res.setHeader("Set-Cookie", `session=${encodeURIComponent(JSON.stringify(session))}`);
-	res.setHeader("Location", "/");
-	res.statusCode = 302;
-	res.end();
+  var sid = sessions.create(user);
+  res.setHeader("Set-Cookie", `SID=${sid}; Secure; HTTPOnly`);
+  res.statusCode = 302;
+  res.setHeader("Location", "/");
+  res.end();
 }
 
 //helper function

@@ -10,14 +10,19 @@ const loadBody = require('./middleware/load-body');
 const basicAuth = require('./middleware/basic-auth');
 const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
+// const parseCookie = require('./middleware/parse-cookie');
+// const loadCookieSession = require('./middleware/load-cookie-session');
+const loadSession = require('./middleware/load-session');
 
 require('../server');
 var bodyParser = require('body-parser');
 
 const app = express();
 app.use(bodyParser.json());
-
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(parseCookie);
+// app.use(loadCookieSession);
+app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', showBox);
 app.post('/box-locations/:id/requests', createRequest);
@@ -25,8 +30,6 @@ app.get("/signup", newUser);
 app.post("/signup", createUser);
 app.get('/signin', newSession);
 app.post("/signin", createSession);
-
-
 
 app.use(express.static('static'));
 

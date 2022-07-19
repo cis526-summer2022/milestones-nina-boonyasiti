@@ -8,6 +8,7 @@ function createUser(req, res) {
 	var email = req.body.email;
 	var name = req.body.name;
 	var password = req.body.password;
+	var role = 1;
 	console.log(email, name, password);
 
 	var existingUser = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
@@ -20,7 +21,7 @@ function createUser(req, res) {
 	const passes = 10;
 	bcrypt.hash(password, passes, (err, hash) => {
 		if(err) return serveError(req, res, 500, err);
-			var insertQuery = db.prepare("INSERT INTO users (email, name, encryptedPassword) VALUES (?, ?, ?);").run(email, name, hash);
+			var insertQuery = db.prepare("INSERT INTO users (email, name, encryptedPassword, roles) VALUES (?, ?, ?, ?);").run(email, name, hash, role);
 			if(insertQuery){
 				success(req, res);
 			} else {
