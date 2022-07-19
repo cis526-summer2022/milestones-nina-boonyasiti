@@ -13,7 +13,7 @@ async function showBox(req, res) {
 
 	const requestItems = db.prepare("SELECT * FROM requestChest WHERE box_id = ?").all(boxID);
 
-	var html = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems});
+	var html = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems, user: req.session.user});
 
 	res.setHeader("Content-Type", "text/html");
 	res.setHeader("Content-Length", html.length);

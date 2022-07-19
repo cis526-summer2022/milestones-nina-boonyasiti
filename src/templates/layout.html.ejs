@@ -16,9 +16,6 @@
 
      <% if(locals.user) { %>
         Welcome <%= user.name %>!
-        <% if(user.roles === 1) { %>
-          <a href="'/box-locations/:id/requests'">Create a Post</a>
-        <% } %>
       <% } else { %>
         <a href="/signin">Sign In</a> 
         or

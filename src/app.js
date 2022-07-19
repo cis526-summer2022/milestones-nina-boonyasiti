@@ -13,6 +13,8 @@ const createSession = require('./endpoints/create-session');
 // const parseCookie = require('./middleware/parse-cookie');
 // const loadCookieSession = require('./middleware/load-cookie-session');
 const loadSession = require('./middleware/load-session');
+const authorsOnly = require('./middleware/authors-only');
+
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -25,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', showBox);
-app.post('/box-locations/:id/requests', createRequest);
+app.post('/box-locations/:id/requests', authorsOnly, createRequest);
 app.get("/signup", newUser);
 app.post("/signup", createUser);
 app.get('/signin', newSession);

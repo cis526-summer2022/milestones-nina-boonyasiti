@@ -14,6 +14,15 @@
     <div class="header">
       <h1>MHK Community Chest</h1>
       <p>Support your local community!</p>
+
+      <% if(locals.user) { %>
+        Welcome <%= user.name %>!
+      <% } else { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
+
     </div>
 
     <div class="miscellaneous">
@@ -39,15 +48,18 @@
     </div>
 
      <div class="miscellaneous">
-      <h2>NEW BOX</h2>
-      <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
-        <div>
-          <label for="chestRequest">What do you want to post?
-            <input id="chestRequest" type="text" name="chestRequest" required/>
-          </label>
-        </div>
-        <input type="submit" value="Submit"/>
-      </form>
+        Welcome <%= user.name %>!
+        <% if(user.roles === 1) { %>
+            <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
+            <div>
+              <label for="chestRequest">What do you want to post?
+                <input id="chestRequest" type="text" name="chestRequest" required/>
+              </label>
+            </div>
+              <input type="submit" value="Submit"/>
+            </form>
+        <% } %>
+      
     </div>
 
     <div class="footer">
