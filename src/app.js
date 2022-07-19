@@ -8,7 +8,8 @@ const newUser = require('./endpoints/new-user.js');
 const createUser = require('./endpoints/create-user');
 const loadBody = require('./middleware/load-body');
 const basicAuth = require('./middleware/basic-auth');
-
+const newSession = require('./endpoints/new-session');
+const createSession = require('./endpoints/create-session');
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -20,10 +21,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', serveHomepage);
 app.get('/boxes/:id', showBox);
 app.post('/box-locations/:id/requests', createRequest);
-// app.post('/boxes', basicAuth, loadBody, createRequest);
 app.get("/signup", newUser);
-// app.post("/signup", loadBody, createUser);
 app.post("/signup", createUser);
+app.get('/signin', newSession);
+app.post("/signin", createSession);
+
 
 
 app.use(express.static('static'));
