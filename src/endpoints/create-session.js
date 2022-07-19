@@ -24,7 +24,13 @@ function createSession(req, res) {
 
 //helper function
 function success(req, res, user) {
-	res.end(`Welcome ${user.name}.  You logged in successfully!`);
+	var session = {
+		user: user
+	}
+	res.setHeader("Set-Cookie", `session=${encodeURIComponent(JSON.stringify(session))}`);
+	res.setHeader("Location", "/");
+	res.statusCode = 302;
+	res.end();
 }
 
 //helper function

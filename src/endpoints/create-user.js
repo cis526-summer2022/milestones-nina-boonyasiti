@@ -32,7 +32,9 @@ function createUser(req, res) {
 
 //helper function
 function success(req, res, userID) {
-	res.end("Welcome! You are logged In!");
+	res.setHeader("Location", "/");
+  	res.statusCode = 302;
+  	res.end();
 }
 
 //helper function
