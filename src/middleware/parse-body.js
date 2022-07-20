@@ -4,12 +4,10 @@ const serveError = require('../serve-error');
 function parseBody(req, res, next) {
   var chunks = [];
   
-  // listen for data events
   req.on('data', (chunk) => {
     chunks.push(chunk);
   });
   
-  // listen for end events
   req.on('end', () => {
     var data = Buffer.concat(chunks);
     var encoding = req.headers['content-type'];
@@ -74,7 +72,6 @@ function parseContentPart(contentBuffer) {
   var nameMatch = /name="([^"]+)"/.exec(head);
   var filenameMatch = /filename="([^"]+)"/.exec(head);
   if(filenameMatch) {
-    // content part is a file input field
     var contentTypeMatch = /Content-Type:\s?(\S+)/.exec(head);
     var contentType = contentTypeMatch && contentTypeMatch[1] ? contentTypeMatch[1] : 'application/octet-stream'
     return { 
@@ -85,7 +82,6 @@ function parseContentPart(contentBuffer) {
       }
     };
   } else {
-    // content part is a non-file input field
     return {[nameMatch[1]]: body.toString()};    
   }
 }

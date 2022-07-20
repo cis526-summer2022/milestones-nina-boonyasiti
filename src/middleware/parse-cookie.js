@@ -9,8 +9,6 @@ function parseCookie(req, res, next) {
 		var value = pair[1].trim();
 		req.cookies[key] = value;
 	})
-
-	console.log(req.cookies);
 	next();
 }
 

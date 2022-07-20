@@ -22,7 +22,6 @@ function createRequest(req, res, next) {
   } else {
     return res.writeHead(302, {Location: "/signin"}).end();
   }
-
 }
 
 module.exports = createRequest;
