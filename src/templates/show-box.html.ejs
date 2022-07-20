@@ -48,8 +48,8 @@
     </div>
 
      <div class="miscellaneous">
-        Welcome <%= user.name %>!
         <% if(user.roles === 1) { %>
+          Welcome <%= user.name %>!
             <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
             <div>
               <label for="chestRequest">What do you want to post?
@@ -58,7 +58,11 @@
             </div>
               <input type="submit" value="Submit"/>
             </form>
-        <% } %>
+        <% } else { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
       
     </div>
 

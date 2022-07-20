@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(loadCookieSession);
 app.use(loadSession);
 app.get('/', serveHomepage);
-app.get('/boxes/:id', showBox);
+app.get('/boxes/:id', authorsOnly, showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
 app.get("/signup", newUser);
 app.post("/signup", createUser);

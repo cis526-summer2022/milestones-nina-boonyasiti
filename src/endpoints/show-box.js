@@ -12,12 +12,19 @@ async function showBox(req, res) {
 	const url = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=200x200&markers=size:mid%7Ccolor:purple%7C${lat},${lng}&key=AIzaSyCX8V4KyBtUv7RdOXkeZyGa11wrxlTSVx0`;
 
 	const requestItems = db.prepare("SELECT * FROM requestChest WHERE box_id = ?").all(boxID);
-
-	var html = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems, user: req.session.user});
-
-	res.setHeader("Content-Type", "text/html");
-	res.setHeader("Content-Length", html.length);
-	res.send(html);
+	if (!req.session.user) {
+		var noUser = 0;
+		var noHtml = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems, user: noUser});
+		res.setHeader("Content-Type", "text/html");
+		res.setHeader("Content-Length", noHtml.length);
+		res.send(noHtml);
+	} else {
+		var html = templates["show-box.html"]({boxID: box.id, title: box.name, url: url, requestItems: requestItems, user: req.session.user});
+		res.setHeader("Content-Type", "text/html");
+		res.setHeader("Content-Length", html.length);
+		res.send(html);
+	}
+	
 }
 
 module.exports = showBox;
