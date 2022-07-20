@@ -10,8 +10,7 @@ const loadBody = require('./middleware/load-body');
 const basicAuth = require('./middleware/basic-auth');
 const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
-// const parseCookie = require('./middleware/parse-cookie');
-// const loadCookieSession = require('./middleware/load-cookie-session');
+
 const loadSession = require('./middleware/load-session');
 const authorsOnly = require('./middleware/authors-only');
 
@@ -22,8 +21,6 @@ var bodyParser = require('body-parser');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(parseCookie);
-// app.use(loadCookieSession);
 app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', authorsOnly, showBox);
