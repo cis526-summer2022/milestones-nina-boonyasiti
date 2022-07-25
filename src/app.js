@@ -10,10 +10,9 @@ const loadBody = require('./middleware/load-body');
 const basicAuth = require('./middleware/basic-auth');
 const newSession = require('./endpoints/new-session');
 const createSession = require('./endpoints/create-session');
-
 const loadSession = require('./middleware/load-session');
 const authorsOnly = require('./middleware/authors-only');
-
+const destroySession = require('./endpoints/destroy-session');
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -29,6 +28,7 @@ app.get("/signup", newUser);
 app.post("/signup", createUser);
 app.get('/signin', newSession);
 app.post("/signin", createSession);
+app.get("/signout", destroySession);
 
 app.use(express.static('static'));
 

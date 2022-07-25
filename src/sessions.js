@@ -5,6 +5,10 @@ const SESSION_EXPIRATION_INTERVAL = 60 * 60 * 1000;
 
 var sessions = {};
 
+function removeSession(sid) {
+  delete sessions[sid];
+}
+
 function generateUUID() {
 	var uuid = uuidv1();
 	while(sessions[uuid]) {uuid = uuidv1()}
@@ -38,5 +42,6 @@ function getSession(sid) {
 
 module.exports = {
   create: createSession,
-  get: getSession
+  get: getSession,
+  remove: removeSession
 }

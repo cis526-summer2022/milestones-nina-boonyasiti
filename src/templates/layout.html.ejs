@@ -15,7 +15,8 @@
       <p>Support your local community!</p>
 
      <% if(locals.user) { %>
-        Welcome <%= user.name %>!
+        Welcome <%= user.name %>! or
+        <a href="/signout">Log Out</a>
       <% } else { %>
         <a href="/signin">Sign In</a> 
         or
