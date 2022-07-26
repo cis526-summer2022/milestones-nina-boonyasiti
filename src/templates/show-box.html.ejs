@@ -34,7 +34,7 @@
     </div>
 
     <div class="miscellaneous">
-			<% if(user.roles === 1 || user.roles === 0) { %>
+			<% if(locals.user.roles === 1 || locals.user.roles === 0) { %>
 				<ul>
 					<h2>Here are your current post requests: 
 					<% for (const i in requestItems) { %>
@@ -60,7 +60,7 @@
     </div>
 
      <div class="miscellaneous">
-        <% if(user.roles === 1) { %>
+        <% if(locals.user.roles === 1) { %>
           Welcome <%= user.name %>!
             <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
             <div>
