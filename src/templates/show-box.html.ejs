@@ -15,9 +15,14 @@
       <h1>MHK Community Chest</h1>
       <p>Support your local community!</p>
 
-      <% if(locals.user) { %>
-        Welcome <%= user.name %>!
-      <% } else { %>
+      <% if(locals.user && locals.user.roles === 1) { %>
+        Welcome <%= user.name %>! You are an admin!
+        <a href="/signout">Log Out</a>
+      <% } %>
+      <% if(locals.user && locals.user.roles === 0) { %>
+        Welcome <%= user.name %>! 
+        <a href="/signout">Log Out</a>
+      <% } else if(!locals.user) { %>
         <a href="/signin">Sign In</a> 
         or
         <a href="/signup">Sign Up</a>
@@ -60,7 +65,7 @@
     </div>
 
      <div class="miscellaneous">
-        <% if(locals.user.roles === 1) { %>
+        <% if(locals.user.roles === 1 || locals.user.roles === 0) { %>
           Welcome <%= user.name %>!
             <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
             <div>
