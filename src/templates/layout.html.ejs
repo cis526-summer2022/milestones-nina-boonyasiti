@@ -14,12 +14,13 @@
       <h1>MHK Community Chest</h1>
       <p>Support your local community!</p>
 
-     <% if(locals.user) { %>
-        Welcome <%= user.name %>!
-        <a href="/signout">Log Out</a>
-      <% } %>
+     
       <% if(locals.user && locals.user.roles === 1) { %>
         Welcome <%= user.name %>! You are an admin!
+        <a href="/signout">Log Out</a>
+      <% } %>
+      <% if(locals.user && locals.user.roles === 0) { %>
+        Welcome <%= user.name %>! 
         <a href="/signout">Log Out</a>
       <% } else if(!locals.user) { %>
         <a href="/signin">Sign In</a> 
