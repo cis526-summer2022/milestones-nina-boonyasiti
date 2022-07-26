@@ -34,17 +34,28 @@
     </div>
 
     <div class="miscellaneous">
-      <ul>
-        <h2>Here are your current post requests: 
-        <% for (const i in requestItems) { %>
-          <br/>
-          <li>
-            <%= requestItems[i].request %>
-						
-          </li>
-        <% } %>
-        </h2>
-      </ul>
+			<% if(user.roles === 1 || user.roles === 0) { %>
+				<ul>
+					<h2>Here are your current post requests: 
+					<% for (const i in requestItems) { %>
+						<br/>
+							<input type="checkbox">
+							<%= requestItems[i].request %>
+					<% } %>
+					</h2>
+				</ul>
+			<% } else { %>
+				<ul>
+					<h2>Here are your current post requests: 
+					<% for (const i in requestItems) { %>
+						<br/>
+						<li>
+							<%= requestItems[i].request %>
+						</li>
+					<% } %>
+					</h2>
+				</ul>
+			<% } %>
       
     </div>
 
