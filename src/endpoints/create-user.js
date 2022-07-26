@@ -8,7 +8,7 @@ function createUser(req, res) {
 	var email = req.body.email;
 	var name = req.body.name;
 	var password = req.body.password;
-	var role = 1;
+	var role = 0;
 	console.log(email, name, password);
 
 	var existingUser = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
