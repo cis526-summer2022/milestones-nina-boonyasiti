@@ -16,6 +16,7 @@ const destroySession = require('./endpoints/destroy-session');
 const fulfilledItem = require('./endpoints/fulfilled-item');
 const upgradeUser = require('./endpoints/upgrade-user');
 const upgradeUserPost = require('./endpoints/upgrade-user-post');
+const createBoxLocation = require('./endpoints/create-box-location')
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -27,7 +28,7 @@ app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', authorsOnly, showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
-app.post('box-locations/:box_id/requests/:request_id/fulfill', authorsOnly, fulfilledItem);
+app.post('/box-locations/:box_id/requests/:request_id/fulfill', authorsOnly, fulfilledItem);
 app.get("/upgradeuser", upgradeUser);
 app.post("/upgradeuser", upgradeUserPost);
 app.get("/signup", newUser);
@@ -35,6 +36,10 @@ app.post("/signup", createUser);
 app.get('/signin', newSession);
 app.post("/signin", createSession);
 app.get("/signout", destroySession);
+
+app.get("/box-locations/new", createBoxLocation);
+// app.post("/box-locations/new", authorsOnly);
+
 
 app.use(express.static('static'));
 

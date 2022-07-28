@@ -1,0 +1,21 @@
+<div>
+  <h1>Sign Up</h1>
+  <form method="POST">
+
+    <div class="error-message">
+      <%= errorMessage %>
+    </div>
+
+    <label for="locationName">Name of the Location:</label>
+    <input type="text" name="locationName" required/>
+
+    <label for="Latitude">Latitude:</label>
+    <input type="text" name="Latitude"/>
+
+    <label for="Longitude">Longitude:</label>
+    <input type="text" name="Longitude"/>
+
+    <input type="submit" value="Submit"/>
+
+  </form>
+</div>
