@@ -30,14 +30,16 @@ app.get('/', serveHomepage);
 app.get('/boxes/:id', authorsOnly, showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
 app.post('/box-locations/:box_id/requests/:request_id/fulfill', authorsOnly, fulfilledItem);
-app.get("/upgradeuser", upgradeUser);
-app.post("/upgradeuser", upgradeUserPost);
+
 app.get("/signup", newUser);
 app.post("/signup", createUser);
 app.get('/signin', newSession);
 app.post("/signin", createSession);
 app.get("/signout", destroySession);
 
+//need route protections -- only admins, role === 1 may access these
+app.get("/upgradeuser", upgradeUser);
+app.post("/upgradeuser", upgradeUserPost);
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", submitBoxLocation);
 
