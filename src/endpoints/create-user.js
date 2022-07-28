@@ -15,7 +15,7 @@ function createUser(req, res) {
 
 	if(existingUser) return failure(req, res, `The email "${email}" is already associate with an account.`);
 	if(email === "" || name === "" || password === "") {
-		return failure(req, res, `There are missing entry fields`)
+		return failure(req, res, `There are missing entry fields`);
 	}
 
 	const passes = 10;
