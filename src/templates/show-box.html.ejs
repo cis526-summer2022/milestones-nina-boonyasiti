@@ -44,9 +44,13 @@
 					<h2>Here are your current post requests: 
 					<% for (const i in requestItems) { %>
 						<br/>
-							<input type="checkbox">
-							<%= requestItems[i].request %>
+              <form action="/box-locations/<%= boxID %>/requests/<%= requestItems[i].id %>/fulfill/"  method="POST">
+							  <input type="checkbox" id="checkbox">
+                <%= requestItems[i].request %>
+                
 					<% } %>
+                <input type="submit" value="Submit fulfillment changes"/>
+              </form>
 					</h2>
 				</ul>
 			<% } else { %>
@@ -69,7 +73,7 @@
           Welcome <%= user.name %>!
             <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
             <div>
-              <label for="chestRequest">What do you want to post?
+              <label for="chestRequest"> What do you want to post?
                 <input id="chestRequest" type="text" name="chestRequest" required/>
               </label>
             </div>

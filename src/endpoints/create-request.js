@@ -10,6 +10,7 @@ function createRequest(req, res, next) {
   
   var session = req.session;
   console.log("CREATE REQUEST USER SESSION ROLE: ", req.session.user.roles);
+  
   if(!req.session.user) return res.writeHead(302, {Location: "/signin"}).end();
   if(req.session.user.roles === 1 || req.session.user.roles === 0) {
     var insertQuery = db.prepare("INSERT INTO requestChest (box_id, request, fulfilled, user_id) VALUES (?, ?, ?, ?)").run(id, request, fulfilled, req.session.user.email);
