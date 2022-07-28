@@ -18,6 +18,7 @@ const upgradeUser = require('./endpoints/upgrade-user');
 const upgradeUserPost = require('./endpoints/upgrade-user-post');
 const createBoxLocation = require('./endpoints/create-box-location');
 const submitBoxLocation = require('./endpoints/submit-box-location');
+const showUser = require('./endpoints/show-user');
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -42,6 +43,9 @@ app.get("/upgradeuser", upgradeUser);
 app.post("/upgradeuser", upgradeUserPost);
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", submitBoxLocation);
+app.get('/users', showUser);
+
+
 
 
 app.use(express.static('static'));

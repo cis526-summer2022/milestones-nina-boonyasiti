@@ -1,0 +1,11 @@
+<% users.forEach((user) => { %>
+  <% const uName = user.name; %>
+  <% const uEmail = user.email; %>
+  <% const uRole = user.roles; %>
+
+    <div class="card-container" id="card-container">
+      <a href="/users">
+        <p><%= uName %></p>
+      </a>
+    </div>
+<% }); %>
