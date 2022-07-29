@@ -1,27 +1,31 @@
-<% users.forEach((user) => { %>
-	<div>
-		<% const uName = user.name; %>
-		<% const uEmail = user.email; %>
-		<% const uRole = user.roles; %>
-		<% const uId = user.user_id; %>
+<% if(locals.user && locals.user.roles === 1) { %>
+	<% users.forEach((user) => { %>
+		<div>
+			<% const uName = user.name; %>
+			<% const uEmail = user.email; %>
+			<% const uRole = user.roles; %>
+			<% const uId = user.user_id; %>
 
-		<h3> <%= uName %> </h3>
-		<form method="POST">
+			<h3> <%= uName %> </h3>
+			<form method="POST">
 
-		<label for="user_id"> User ID: <%= uId %></label> 
-    <input type="text" name="user_id" value=<%= uId %> /> <br>
+			<label for="user_id"> User ID: <%= uId %></label> 
+			<input type="text" name="user_id" value=<%= uId %> /> <br>
 
-		<label for="name">Name:</label>
-    <input type="text" name="name" placeholder=<%= uName %> /> <br>
+			<label for="name">Name:</label>
+			<input type="text" name="name" placeholder=<%= uName %> /> <br>
 
-		<label for="email">Email:</label>
-    <input type="text" name="email" placeholder=<%= uEmail %> /> <br>
+			<label for="email">Email:</label>
+			<input type="text" name="email" placeholder=<%= uEmail %> /> <br>
 
-		<label for="role">Role:</label>
-    <input type="text" name="role" placeholder=<%= uRole %> /> <br>
+			<label for="role">Role:</label>
+			<input type="text" name="role" placeholder=<%= uRole %> /> <br>
 
-    <input type="submit" value="Modify Account"/>
+			<input type="submit" value="Modify Account"/>
 
-		</form>
-	</div>
-<% }); %>
+			</form>
+		</div>
+	<% }); %>
+<% } else { %>
+  <div> You need to be an administrator to access this page! </div>
+<% } %>

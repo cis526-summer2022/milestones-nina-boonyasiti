@@ -42,12 +42,13 @@ app.post("/signin", createSession);
 app.get("/signout", destroySession);
 app.get("/upgradeuser", upgradeUser);
 app.post("/upgradeuser", authorsOnly, upgradeUserPost);
-
-//need route protections -- only admins, role === 1 may access these
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", authorsOnly, submitBoxLocation);
+
+//need route protections -- only admins, role === 1 may access these
+
 app.get("/users", showUser);
-app.post("/users", manageUser);
+app.post("/users", authorsOnly, manageUser);
 app.get("/box-locations/delete", deleteBoxLocation);
 app.post("/box-locations/delete", removeBoxLocation);
 

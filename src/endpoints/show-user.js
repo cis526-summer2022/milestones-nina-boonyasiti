@@ -10,7 +10,7 @@ function showUser(req, res) {
 	var nameOfUser = user.name;
 	var userID = user.id;
 
-	var userHtml = templates['user-list.html'] ({users: users});
+	var userHtml = templates['user-list.html'] ({users: users, user: req.session.user});
 
 	var html = templates["layout.html"]({
     title: "List of users",
