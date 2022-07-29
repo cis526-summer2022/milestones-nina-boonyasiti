@@ -44,7 +44,11 @@
 					<h2>Here are your current post requests: 
             <form action="/box-locations/<%= boxID %>/requests/fulfill/"  method="POST">
             <% for (const i in requestItems) { %>
-                <input type="checkbox" name="checkbox" id="checkbox" value=<%= requestItems[i].id %>>
+              <% if(requestItems[i].fulfilled === 1) { %>
+                 <input type="checkbox" name="checkbox" id="checkbox" value=<%= requestItems[i].id %> checked>
+              <% } else { %> 
+                  <input type="checkbox" name="checkbox" id="checkbox" value=<%= requestItems[i].id %>>
+              <% } %>
                 <%= requestItems[i].request %><br>
             <% } %>
                 <br> <input type="submit" value="Submit fulfillment changes"/> <br>
