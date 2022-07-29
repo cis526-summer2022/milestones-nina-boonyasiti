@@ -15,9 +15,17 @@
       <h1><a href="/">MHK Community Chest</a></h1>
       <p>Support your local community!</p>
 
-      <% if(locals.user && locals.user.roles === 1) { %>
+       <% if(locals.user && locals.user.roles === 1) { %>
         Welcome <%= user.name %>! You are an admin!
         <a href="/signout">Log Out</a>
+        or
+        <a href="/upgradeuser">Upgrade a User</a>
+        or
+        <a href="/box-locations/new">Submit a new chest location</a>
+        or
+        <a href="/box-locations/delete">Delete a chest location</a>
+        or
+        <a href="/users">View all users</a>
       <% } %>
       <% if(locals.user && locals.user.roles === 0) { %>
         Welcome <%= user.name %>! 
@@ -27,7 +35,6 @@
         or
         <a href="/signup">Sign Up</a>
       <% } %>
-
     </div>
 
     <div class="miscellaneous">

@@ -34,7 +34,8 @@ function failure(req, res, errorMessage) {
   });
   var html = templates["layout.html"]({
     title: "Submit a new Community Chest location",
-    boxes: form
+    boxes: form,
+		user: req.session.user
   });
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);

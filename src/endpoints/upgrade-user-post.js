@@ -31,7 +31,8 @@ function failure(req, res, errorMessage) {
   });
   var html = templates["layout.html"]({
     title: "Upgrade a User",
-    boxes: form
+    boxes: form,
+		user: req.session.user
   });
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);

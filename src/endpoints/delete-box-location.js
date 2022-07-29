@@ -8,6 +8,7 @@ module.exports = function(req, res) {
   var html = templates["layout.html"]({
     title: "Remove a Community Chest location",
     boxes: form,
+    user: req.session.user
   });
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);
