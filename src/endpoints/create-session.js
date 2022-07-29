@@ -32,7 +32,6 @@ function success(req, res, user) {
   res.end();
 }
 
-//helper function
 function failure(req, res, errorMessage) {
   if(!errorMessage) errorMessage = "There was an error processing your request.  Please try again."
   var form = templates["signin.html"]({
