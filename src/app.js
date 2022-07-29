@@ -31,7 +31,7 @@ app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', authorsOnly, showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
-app.post('/box-locations/:box_id/requests/:request_id/fulfill', authorsOnly, fulfilledItem);
+app.post('/box-locations/:id/requests/:id/fulfill', authorsOnly, fulfilledItem);
 
 app.get("/signup", newUser);
 app.post("/signup", createUser);
@@ -45,6 +45,7 @@ app.post("/upgradeuser", upgradeUserPost);
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", submitBoxLocation);
 app.get("/users", showUser);
+// app.get("/users/:id", ......);
 app.get("/box-locations/delete", deleteBoxLocation);
 
 

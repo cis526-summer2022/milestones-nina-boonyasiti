@@ -6,12 +6,20 @@
 		<% const uName = user.name; %>
 		<% const uEmail = user.email; %>
 		<% const uRole = user.roles; %>
+		<% const uId = user.user_id; %>
 
 		<h3> <%= uName %> </h3>
+		<h3> User Id: <%= uId %> </h3>
 		<form method="GET">
 
-		<p>User Email: <%= uEmail %></p>
-		<p>User Role: <%= uRole %></p>
+		<label for="name">Name:</label>
+    <input type="text" name="name" placeholder=<%= uName %> />
+
+		<label for="email">Email:</label>
+    <input type="text" name="email" placeholder=<%= uEmail %> />
+
+		<label for="role">Role:</label>
+    <input type="text" name="role" placeholder=<%= uRole %> />
 
     <input type="submit" value="Modify Account"/>
 

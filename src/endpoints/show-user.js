@@ -8,7 +8,7 @@ function showUser(req, res) {
 	var users = db.prepare("SELECT * FROM users;").all();
 	var user = users[0];
 	var nameOfUser = user.name;
-	var userID = user.user_id;
+	var userID = user.id;
 
 	var userHtml = templates['user-list.html'] ({users: users});
 
