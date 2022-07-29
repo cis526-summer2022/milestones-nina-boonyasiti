@@ -1,21 +1,24 @@
-<div>
-  <h1>New Community Chest Location</h1>
-  <form method="POST">
 
-    <div class="error-message">
-      <%= errorMessage %>
-    </div>
+<% if(locals.user && locals.user.roles === 1) { %>
+  <div>
+    <h1>New Community Chest Location</h1>
+    <form method="POST">
+      <div class="error-message">
+        <%= errorMessage %>
+      </div>
 
-    <label for="locationName">Name of the Location:</label>
-    <input type="text" name="locationName"/><br>
+      <label for="locationName">Name of the Location:</label>
+      <input type="text" name="locationName"/><br>
 
-    <label for="latitude">Latitude:</label>
-    <input type="text" name="latitude"/><br>
+      <label for="latitude">Latitude:</label>
+      <input type="text" name="latitude"/><br>
 
-    <label for="longitude">Longitude:</label>
-    <input type="text" name="longitude"/><br>
+      <label for="longitude">Longitude:</label>
+      <input type="text" name="longitude"/><br>
 
-    <input type="submit" value="Submit"/>
-
-  </form>
-</div>
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
+<% } else { %>
+  <div> You need to be an administrator to access this page! </div>
+<% } %>

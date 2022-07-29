@@ -29,11 +29,12 @@ function submitBoxLocation(req, res) {
 function failure(req, res, errorMessage) {
   if(!errorMessage) errorMessage = "There was an error processing your request.  Please try again."
   var form = templates["new-box-location.html"]({
-    errorMessage: ""
+    errorMessage: "",
+		user: req.session.user
   });
   var html = templates["layout.html"]({
     title: "Submit a new Community Chest location",
-    boxes: form,
+    boxes: form
   });
   res.setHeader("Content-Type", "text/html");
   res.setHeader("Content-Length", html.length);
