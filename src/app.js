@@ -31,7 +31,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(loadSession);
 app.get('/', serveHomepage);
-app.get('/boxes/:id', authorsOnly, showBox);
+app.get('/boxes/:id', showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
 app.post('/box-locations/:id/requests/fulfill', authorsOnly, fulfilledItem);
 
@@ -43,7 +43,7 @@ app.get("/signout", destroySession);
 
 //need route protections -- only admins, role === 1 may access these
 app.get("/upgradeuser", upgradeUser);
-app.post("/upgradeuser", upgradeUserPost);
+app.post("/upgradeuser", authorsOnly, upgradeUserPost);
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", submitBoxLocation);
 app.get("/users", showUser);

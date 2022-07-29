@@ -26,7 +26,8 @@ function success(req, res, userID) {
 function failure(req, res, errorMessage) {
   if(!errorMessage) errorMessage = "There was an error processing your request.  Please try again."
   var form = templates["upgradeuser.html"]({
-    errorMessage: errorMessage
+    errorMessage: errorMessage,
+		user: req.session.user
   });
   var html = templates["layout.html"]({
     title: "Upgrade a User",

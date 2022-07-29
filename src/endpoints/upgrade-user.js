@@ -4,7 +4,8 @@ const db = require('../database');
 
 module.exports = function(req, res) {
 	var form = templates["upgradeuser.html"]({
-		errorMessage: ""
+		errorMessage: "",
+    user: req.session.user
   });
 
   var html = templates["layout.html"]({
