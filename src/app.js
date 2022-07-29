@@ -33,7 +33,7 @@ app.use(loadSession);
 app.get('/', serveHomepage);
 app.get('/boxes/:id', authorsOnly, showBox);
 app.post('/box-locations/:id/requests', authorsOnly, createRequest);
-app.post('/box-locations/:id/requests/:id/fulfill', authorsOnly, fulfilledItem);
+app.post('/box-locations/:id/requests/fulfill', authorsOnly, fulfilledItem);
 
 app.get("/signup", newUser);
 app.post("/signup", createUser);
