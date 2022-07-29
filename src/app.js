@@ -44,16 +44,10 @@ app.get("/upgradeuser", upgradeUser);
 app.post("/upgradeuser", authorsOnly, upgradeUserPost);
 app.get("/box-locations/new", createBoxLocation);
 app.post("/box-locations/new", authorsOnly, submitBoxLocation);
-
-//need route protections -- only admins, role === 1 may access these
-
 app.get("/users", showUser);
 app.post("/users", authorsOnly, manageUser);
 app.get("/box-locations/delete", deleteBoxLocation);
-app.post("/box-locations/delete", removeBoxLocation);
-
-
-
+app.post("/box-locations/delete", authorsOnly, removeBoxLocation);
 
 app.use(express.static('static'));
 
