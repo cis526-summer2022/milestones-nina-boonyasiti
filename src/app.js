@@ -21,6 +21,7 @@ const submitBoxLocation = require('./endpoints/submit-box-location');
 const showUser = require('./endpoints/show-user');
 const deleteBoxLocation = require('./endpoints/delete-box-location');
 const manageUser = require('./endpoints/manage-user');
+const removeBoxLocation = require('./endpoints/remove-box-location');
 
 require('../server');
 var bodyParser = require('body-parser');
@@ -48,6 +49,8 @@ app.post("/box-locations/new", submitBoxLocation);
 app.get("/users", showUser);
 app.post("/users", manageUser);
 app.get("/box-locations/delete", deleteBoxLocation);
+app.post("/box-locations/delete", removeBoxLocation);
+
 
 
 

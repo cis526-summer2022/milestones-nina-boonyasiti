@@ -1,4 +1,3 @@
-const bcrypt = require('bcrypt');
 const templates = require('../templates');
 const Database = require('better-sqlite3');
 const db = require('../database');
@@ -28,13 +27,7 @@ function manageUser(req, res) {
 		var updatedUserQuery = db.prepare("SELECT * FROM users WHERE user_id = ?").get(id);
 		console.log("THIS IS THE UPDATED USER: ", updatedUserQuery);
 	}
-	// if(manageEmail != "") {
-	// 	var manageEmailQuery = db.prepare("UPDATE users SET email = ? WHERE id = ?").run(manageEmail, );
-	// }
 
-
-
-	// var manageQuery = 
 	res.setHeader("Location", "/users");
 	res.statusCode = 302;
 	res.end();
