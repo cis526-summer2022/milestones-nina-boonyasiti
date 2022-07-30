@@ -1,0 +1,11 @@
+<% boxes.forEach((box) => { %>
+  <% const lat = box.lat; %>
+  <% const lng = box.lng; %>
+    <% const url = `http://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=200x200&markers=size:mid%7Ccolor:purple%7C${lat},${lng}&key=AIzaSyCX8V4KyBtUv7RdOXkeZyGa11wrxlTSVx0`; %>
+    <div>
+      <a href="/boxes/<%= box.id %>">
+        <img src="<%= url %>" />
+        <p><%= box.name %></p>
+      </a>
+    </div>
+<% }); %>

@@ -1,0 +1,21 @@
+<% if(locals.user && locals.user.roles === 1) { %>
+  <div>
+    <h1>Who do you want to upgrade?</h1>
+    <form method="POST">
+    
+    <div class="error-message">
+        <%= errorMessage %>
+      </div>
+
+      <label for="upgradeUserEmail">Email:</label>
+      <input type="text" name="upgradeUserEmail" />
+
+      <label for="upgradeUserName">Name:</label>
+      <input type="text" name="upgradeUserName"/>
+
+      <input type="submit" value="Submit"/>
+    </form>
+  </div>
+<% } else { %>
+  <div> You need to be an administrator to access this page! </div>
+<% } %>

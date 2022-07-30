@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/site.css" rel="stylesheet" type="text/css"/>
+    
+    <title>MHK Community Chest</title>
+    <link rel="icon" href="favicon-16x16.png" type="image/png">
+    <link rel="icon" href="favicon-32x32.png" type="image/png">
+    <link rel="icon" href="favicon-64x64.png" type="image/png">
+  </head>
+  
+  <body>
+    <div class="header">
+      <h1><a href="/">MHK Community Chest</a></h1>
+      <p>Support your local community!</p>
+
+       <% if(locals.user && locals.user.roles === 1) { %>
+        Welcome <%= user.name %>! You are an admin!
+        <a href="/signout">Log Out</a>
+        or
+        <a href="/upgradeuser">Upgrade a User</a>
+        or
+        <a href="/box-locations/new">Submit a new chest location</a>
+        or
+        <a href="/box-locations/delete">Delete a chest location</a>
+        or
+        <a href="/users">View all users</a>
+      <% } %>
+      <% if(locals.user && locals.user.roles === 0) { %>
+        Welcome <%= user.name %>! 
+        <a href="/signout">Log Out</a>
+      <% } else if(!locals.user) { %>
+        <a href="/signin">Sign In</a> 
+        or
+        <a href="/signup">Sign Up</a>
+      <% } %>
+    </div>
+
+    <div class="miscellaneous">
+      <h2>This is the box you are looking for: <%= title %></h2>
+    </div>
+
+    <div class="single-card-container" id="single-card-container">
+      <img src="<%= url %>" />
+    </div>
+
+    <div class="miscellaneous">
+			<% if(user) { %>
+				<ul>
+					<h2>Here are your current post requests: 
+            <form action="/box-locations/<%= boxID %>/requests/fulfill/"  method="POST">
+            <% for (const i in requestItems) { %>
+              <% if(requestItems[i].fulfilled === 1) { %>
+                 <input type="checkbox" name="checkbox" id="checkbox" value=<%= requestItems[i].id %> checked>
+              <% } else { %> 
+                  <input type="checkbox" name="checkbox" id="checkbox" value=<%= requestItems[i].id %>>
+              <% } %>
+                <%= requestItems[i].request %><br>
+            <% } %>
+                <br> <input type="submit" value="Submit fulfillment changes"/> <br>
+            </form>
+					</h2>
+				</ul>
+			<% } else { %>
+				<ul>
+					<h2>Here are your current post requests: 
+					<% for (const i in requestItems) { %>
+						<br/>
+						<li>
+							<%= requestItems[i].request %>
+						</li>
+					<% } %>
+					</h2>
+				</ul>
+			<% } %>
+      
+    </div>
+
+     <div class="miscellaneous">
+        <% if(user) { %>
+          Welcome <%= user.name %>!
+            <form action="/box-locations/<%= boxID%>/requests/"  method="POST">
+            <div>
+              <label for="chestRequest"> What do you want to post?
+                <input id="chestRequest" type="text" name="chestRequest" required/>
+              </label>
+            </div>
+              <input type="submit" value="Submit"/>
+            </form>
+        <% } else { %>
+        Create an account to post requests!
+      <% } %>
+      
+    </div>
+
+    <div class="footer">
+      <h1>What is Community Chest?</h1>
+      <p>Community Chest is a non-profit project that uses newspaper dispensers around town to gather small charitable goods. Leave your goods with us and we will rehome them!</p>
+    </div>
+  </body>
+</html>
